@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tracksy</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Tracksy: Application Tracker</h1>
+      <div class="actions">
+        <button id="add-btn">➕ Add</button>
+        <button id="export-json">📦 Export JSON</button>
+        <input type="file" id="import-json" accept=".json" hidden>
+        <button id="import-btn">📥 Import</button>
+      </div>
+    </header>
+
+    <section class="filters">
+      <input type="text" id="search" placeholder="🔍 Search company or role">
+      <select id="filter-status">
+        <option value="">All</option>
+        <option value="applied">Applied</option>
+        <option value="interview">Interview</option>
+        <option value="offer">Offer</option>
+        <option value="rejected">Rejected</option>
+      </select>
+      <select id="sort-by">
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+      </select>
+      <button id="export-csv">📤 Export CSV</button>
+      <button id="export-pdf">📄 Export PDF</button>
+    </section>
+
+
+    <section class="grid" id="grid"></section>
+    <p id="empty-state" class="empty">No applications yet 🐣 Add your first one!</p>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal hidden" id="modal">
+    <div class="modal-content">
+      <h2 id="form-title">Add Application</h2>
+      <form id="form">
+        <input type="text" id="name" placeholder="Company Name" required>
+        <input type="text" id="role" placeholder="Role" required>
+        <input type="date" id="date" required>
+        <select id="status" required>
+          <option value="applied">Applied</option>
+          <option value="interview">Interview</option>
+          <option value="offer">Offer</option>
+          <option value="rejected">Rejected</option>
+        </select>
+        <textarea id="notes" placeholder="Notes or comments"></textarea>
+        <input type="url" id="link" placeholder="Job Post Link">
+        <div class="form-buttons">
+          <button type="submit" class="save">💾 Save</button>
+          <button type="button" id="cancel">❌ Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+    <div>
+    <section class="analytics">
+      <canvas id="statusChart" height="120"></canvas>
+    </section>
+    </div>
+    
+  <script src="script.js"></script>
+</body>
+</html>
