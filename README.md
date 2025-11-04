@@ -37,7 +37,7 @@ tracksy/
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/your-username/tracksy.git
+git clone https://github.com/nxvyx/tracksy.git
 cd tracksy
 ````
 
